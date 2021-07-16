@@ -1,0 +1,15 @@
+{
+    "name": "linenowl/pdo",
+    "authors": [
+        {
+            "name": "ApostolaT",
+            "email": "allex.post26@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+
+        }
+    }
+}
