@@ -10,40 +10,40 @@ try {
     $pdo->beginTransaction();
 
 ////Query 1
-    $country = "USA";
-    $firstName = "Anthony";
-    $lastName = "Bow";
-    $queryString1 = "SELECT officeCode, city
-                    FROM offices
-                    WHERE country = :country
-                    AND officeCode = (
-                        SELECT officeCode
-                        FROM employees
-                        WHERE firstName = :firstName
-                        AND lastName = :lastName
-                        );";
-    $query = $pdo->prepare($queryString1);
-    $query->bindValue(":country", $country);
-    $query->bindValue(":firstName", $firstName);
-    $query->bindValue(":lastName", $lastName);
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($result);
+//    $country = "USA";
+//    $firstName = "Anthony";
+//    $lastName = "Bow";
+//    $queryString1 = "SELECT o.officeCode, o.city
+//                    FROM offices as o
+//                    INNER JOIN employees as e
+//                    ON o.officeCode = e.officeCode
+//                    WHERE o.country = :country
+//                    AND e.firstName = :firstName
+//                    AND e.lastName = :lastName
+//                    ;";
+//    $query = $pdo->prepare($queryString1);
+//    $query->bindValue(":country", $country);
+//    $query->bindValue(":firstName", $firstName);
+//    $query->bindValue(":lastName", $lastName);
+//    $query->execute();
+//    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+//    var_dump($result);
 ////Query 2
-    $queryString2 = "SELECT SUM(cs.creditlimit), COUNT(ord.ordernumber), cs.country
-                     FROM customers AS cs
-                     INNER JOIN orders as ord
-                     ON cs.customernumber = ord.customernumber
-                     GROUP BY cs.country;";
-    $result = $pdo->query($queryString2);
-    var_dump($result->fetchAll(PDO::FETCH_ASSOC));
+//    $queryString2 = "SELECT SUM(cs.creditlimit), COUNT(ord.ordernumber) as orderNum, cs.country
+//                     FROM customers AS cs
+//                     INNER JOIN orders as ord
+//                     ON cs.customernumber = ord.customernumber
+//                     GROUP BY cs.country
+//                     ;";
+//    $result = $pdo->query($queryString2);
+//    var_dump($result->fetchAll(PDO::FETCH_ASSOC));
 //// Query 3
-    $queryString3 = "DELETE FROM products WHERE buyPrice < :price AND quantityInStock < :stock;";
-    $query = $pdo->prepare($queryString3);
-    $query->bindValue(":price", 30);
-    $query->bindValue(":stock", 100);
-    $query->execute();
-    echo "Deletion done";
+//    $queryString3 = "DELETE FROM products WHERE buyPrice < :price AND quantityInStock < :stock;";
+//    $query = $pdo->prepare($queryString3);
+//    $query->bindValue(":price", 30);
+//    $query->bindValue(":stock", 1000);
+//    $query->execute();
+//    echo "Deletion done";
 
     $pdo->commit();
     $pdo = null;
