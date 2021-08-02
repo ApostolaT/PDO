@@ -1,0 +1,10 @@
+Current trainee is Alexei
+
+	Problem suggested by razvan:
+	6 -> Find in what offices our employee Anthony Bow worked across USA
+
+	Problem suggested by michael:
+	9 -> Show credit limit and number of orders by country
+
+	Problem suggested by Mihai:
+	12 -> Delete all products with price lower than 30$ and quantity stock greater than 1000
